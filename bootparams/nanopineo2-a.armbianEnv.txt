@@ -1,0 +1,10 @@
+verbosity=0
+bootlogo=true
+console=serial
+overlay_prefix=sun50i-h5
+rootdev=UUID=
+rootfstype=ext4
+usbstoragequirks=0x2537:0x1066:u,0x2537:0x1068:u
+extraargs=imgpart=UUID= bootpart=UUID= datapart=UUID= bootconfig=armbianEnv.txt imgfile=/volumio_current.sqsh net.ifnames=0 hwver=nanopineo2
+overlays=usbhost0 usbhost1 usbhost2 usbhost4 analog-codec i2c0
+user_overlays=sun50i-h5-i2s0-master
