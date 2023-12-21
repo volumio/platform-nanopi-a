@@ -112,7 +112,7 @@ touch "${P}"/boot/.next
 cp "${C}"/bootparams/"${P}".armbianEnv.txt "${P}"/boot/armbianEnv.txt
 
 echo "Creating device tarball.."
-tar cJf "${P}_${B}.tar.xz" "$P"
+XZ_OPT=-9 tar cJf "${P}_${B}.tar.xz" "$P"
 
 echo "Renaming tarball for Build scripts to pick things up"
 mv "${P}_${B}.tar.xz" "${P}.tar.xz"
