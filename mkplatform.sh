@@ -69,7 +69,12 @@ dpkg-deb -x "${A}/output/debs/armbian-firmware_${ARMBIAN_VERSION}"* "${P}"
 # Copy bootloader stuff
 cp "${P}"/usr/lib/linux-u-boot-"${B}"-*/u-boot-sunxi-with-spl.bin "${P}/u-boot"
 mv "${P}"/boot/dtb* "${P}"/boot/dtb
-mv "${P}"/boot/vmlinuz* "${P}"/boot/zImage
+if [ ${ver} = "neo2" ]
+then
+  mv "${P}"/boot/vmlinuz* "${P}"/boot/Image
+else
+  mv "${P}"/boot/vmlinuz* "${P}"/boot/zImage
+fi
 
 # Clean up unneeded parts
 rm -rf "${P}/lib/firmware/.git"
