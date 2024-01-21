@@ -99,8 +99,6 @@ then
   cp "${C}"/extras/extras-"${P}"/asound.state "${P}"/var/lib/alsa/asound.state
 fi
 
-
-
 # Copy and compile boot script
 if [ ${ver} = "neo2" ]
 then
@@ -115,6 +113,9 @@ touch "${P}"/boot/.next
 
 # Prepare boot parameters
 cp "${C}"/bootparams/"${P}".armbianEnv.txt "${P}"/boot/armbianEnv.txt
+
+# Remove unnecessary firmware files
+rm -rf "${P}"/lib/firmware/qcom
 
 echo "Creating device tarball.."
 XZ_OPT=-9 tar cJf "${P}_${B}.tar.xz" "$P"
